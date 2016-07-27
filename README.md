@@ -73,6 +73,7 @@ $grid-breakpoints: (
 Mixins
 ------
 
+```scss
 @mixin grid-row($gutter: $grid-gutter-width)
 
 @mixin grid-col-make($gutter: $grid-gutter-width)
@@ -89,6 +90,7 @@ Mixins
 @mixin grid-col-offset-break($name, $span, $columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints)
 
 @mixin grid-break-generate-classes($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints)
+```
 
 Caveats
 -------
