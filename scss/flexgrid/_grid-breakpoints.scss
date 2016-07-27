@@ -1,0 +1,54 @@
+@import "grid";
+
+$grid-breakpoints: (
+  // Extra small screen / phone
+  xs: 0,
+  // Small screen / phone
+  sm: 544px,
+  // Medium screen / tablet
+  md: 768px,
+  // Large screen / desktop
+  lg: 992px,
+  // Extra large screen / wide desktop
+  xl: 1200px
+) !default;
+
+@mixin grid-col-break($name, $span, $columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+	$minWidth: map-get($breakpoints, $name);
+  @if $minWidth == 0 {
+    @include grid-col($span, $columns, $gutter);
+  } @else {
+    @media (min-width: $minWidth) {
+      @include grid-col($span, $columns, $gutter);
+    }
+  }
+}
+
+@mixin grid-col-offset-break($name, $span, $columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+  $minWidth: map-get($breakpoints, $name);
+  @if $minWidth == 0 {
+    @include grid-col-offset($span, $columns, $gutter);
+  } @else {
+    @media (min-width: $minWidth) {
+      @include grid-col-offset($span, $columns, $gutter);
+    }
+  }
+}
+
+@mixin grid-break-generate-classes($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+	.row {
+		@include grid-row($gutter);
+	}
+  @each $breakpoint in map-keys($breakpoints) {
+    @for $i from 1 through $columns {
+      .col-#{$breakpoint}-#{$i} {
+        @include grid-col-break($breakpoint, $i, $columns, $gutter, $breakpoints);
+      }
+    }
+    @for $i from 1 through $columns {
+      .col-#{$breakpoint}-offset-#{$i} {
+        @include grid-col-offset-break($breakpoint, $i, $columns, $gutter, $breakpoints);
+      }
+    }
+  }
+}

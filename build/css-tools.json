@@ -1,0 +1,7 @@
+{
+	"sources": "../scss/**/*.scss",
+	"outFolder": "../css",
+	"autoprefixerOptions": {
+		"browsers": ["last 3 versions", "IE >= 10", "iOS >= 7", "Android >= 4", "last 4 Firefox versions"]
+	}
+}
