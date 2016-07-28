@@ -48,8 +48,6 @@ section aside {
 
 All of the non-semantic code transfered from html to scss.
 
-[Another example](../blob/master/grid-example.html)
-
 Variables
 ---------
 
@@ -109,3 +107,14 @@ Make sure you include the mixins in the correct order.
 @include grid-col-break(md, 9);
 @include grid-col-offset-break(md, 2);
 ```
+
+Contributions
+-------------
+
+Pull requests and issues are welcome.
+
+These are the main subjects a contribution would be welcome:
+
+- Documentation
+- How to and how not to guide
+- **A better name**
